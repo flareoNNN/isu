@@ -1,60 +1,53 @@
-#
-#    Kullanıcıdan bir sayı alan ve mutlak değerini
-#    bulan bir fonksiyon yazınız.
-#
-
-def mutlakDeger(sayi):
-    if(sayi < 0):
-        return (sayi * (-1))
+def getNum():
+    sayi = input("Bir sayi girin: ")
+    if (sayi.lstrip('-').isdigit()):
+        return int(sayi)
     else:
-        return sayi
-    
-def main():
-    x = input()
-    
-    x = int(x)
-    print(mutlakDeger(x))
-        
-main()
+        return getNum()
 
 #
-#    Kullanıcı adı ve soyadını ayrı ayrı alan ve tam adını 
-#    yazdıran bir fonksiyon yazınız.
+# Kullanıcıdan bir sayı alan ve mutlak değerini bulan bir fonksiyon yazınız.
+#
+
+def getAbsolute(num):
+    if (num < 0):
+        return (num * (-1))
+    return num
+
+u_num = getNum()
+print("{} sayisinin mutlak degeri: {}".format(u_num, getAbsolute(u_num)))
+
+#
+# Kullanıcı adı ve soyadını ayrı ayrı alan ve tam adını yazdıran bir fonksiyon yazınız.
 #
 
 def getName():
-    name = input("")
-    surname = input("")
-    print(name, surname)
-    
+    name = input("Adiniz: ")
+    surname = input("Soyadiniz: ")
+    print("{} {}".format(name, surname))
+
 getName()
 
 #
-#    Girdi olarak bir string alan ve onu on defa yazdıran 
-#    bir fonksiyon yazınız.
+# Girdi olarak bir string alan ve onu on defa yazdıran bir fonksiyon yazınız.
 #
 
-def printStrings():
-    string = input("")
-    print(string * 10)
-    
-printStrings()
+def printTimes(str, times):
+    for i in range(times):
+        print("{}".format(str))
+
+printTimes("Huseyin Sirac YAKUT", 10)
 
 #
-#    Kullanıcıdan sadece bir sayı alan ve değerini döndüren bir fonksiyon
-#    yazınız. Bu fonksiyonu başka bir fonksiyonun içinde çağırın ve 3'e
-#    bölünüp bölünemeyeceğini yazdırsın.
+# Kullanıcıdan sadece bir sayı alan ve değerini döndüren bir fonksiyon yazınız.
+# Bu fonksiyonu başka bir fonksiyonun içinde çağırın ve 3'e bölünüp bölünemeyeceğini yazdırsın.
 #
-
-def getNumber():
-    num = input("")
-    return int(num)
 
 def canDivide(div_num):
-    n_num = getNumber()
-    if((n_num % div_num) == 0):
-        print("1")
+    num = getNum()
+    if ((num % div_num) == 0):
+        print("{} sayisi {} sayisina tam bolunur.".format(num, div_num))
     else:
-        print("-1")
+        print("{} sayisi {} sayisina tam bolunmez!".format(num, div_num))
 
 canDivide(3)
